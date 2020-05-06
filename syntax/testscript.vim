@@ -39,11 +39,11 @@ hi def link testscriptEnvVar Special
 syn region testscriptEnv start="\v^\s*env" end="\v$" contains=testscriptEnvKeywords,testscriptEnvVar,testscriptVar,testscriptPredefVar transparent
 
 syn match testscriptVar "\v\$\i+"
-syn match testscriptVar "\v\$\{\i+(\@R)?}"
+syn match testscriptVar "\v\$\{.*}"
 hi def link testscriptVar Identifier
 
-syn match testscriptPredefVar "\v\$(HOME|PATH|TMP|TMPDIR|USERPROFILE|WORK|devnull|home)>"
-syn match testscriptPredefVar "\v\$\{(HOME|PATH|TMP|TMPDIR|USERPROFILE|WORK|devnull|home)(\@R)?}"
+syn match testscriptPredefVar "\v\$(HOME|PATH|TMP|TMPDIR|USERPROFILE|WORK|devnull|exe|goversion|home)>"
+syn match testscriptPredefVar "\v\$\{(:|/|HOME|PATH|TMP|TMPDIR|USERPROFILE|WORK|devnull|exe|goversion|home)(\@R)?}"
 hi def link testscriptPredefVar Special
 
 syn region testscriptString oneline start="\v'" skip="\v''" end="\v'"
