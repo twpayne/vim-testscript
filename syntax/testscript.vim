@@ -39,7 +39,7 @@ hi def link testscriptEnvVar Special
 syn region testscriptEnv start="\v^\s*env" end="\v$" contains=testscriptEnvKeywords,testscriptEnvVar,testscriptVar,testscriptPredefVar,testscriptPredefVarDelim transparent
 
 syn match testscriptVar "\v\$\i+"
-syn match testscriptVar "\v\$\{.*}"
+syn match testscriptVar "\v\$\{[^}]*}"
 hi def link testscriptVar Identifier
 
 syn match testscriptPredefVar "\v\$(HOME|PATH|TMP|TMPDIR|USERPROFILE|WORK|devnull|exe|goversion|home)>"
