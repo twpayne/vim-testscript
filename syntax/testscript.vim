@@ -36,15 +36,18 @@ hi def link testscriptEnvKeywords Keyword
 syn match testscriptEnvVar "\v\i+\=" contained
 hi def link testscriptEnvVar Special
 
-syn region testscriptEnv start="\v^\s*env" end="\v$" contains=testscriptEnvKeywords,testscriptEnvVar,testscriptVar,testscriptPredefVar transparent
+syn region testscriptEnv start="\v^\s*env" end="\v$" contains=testscriptEnvKeywords,testscriptEnvVar,testscriptVar,testscriptPredefVar,testscriptPredefVarDelim transparent
 
 syn match testscriptVar "\v\$\i+"
 syn match testscriptVar "\v\$\{.*}"
 hi def link testscriptVar Identifier
 
 syn match testscriptPredefVar "\v\$(HOME|PATH|TMP|TMPDIR|USERPROFILE|WORK|devnull|exe|goversion|home)>"
-syn match testscriptPredefVar "\v\$\{(:|/|HOME|PATH|TMP|TMPDIR|USERPROFILE|WORK|devnull|exe|goversion|home)(\@R)?}"
+syn match testscriptPredefVar "\v\$\{(HOME|PATH|TMP|TMPDIR|USERPROFILE|WORK|devnull|exe|goversion|home)(\@R)?}"
 hi def link testscriptPredefVar Special
+
+syn match testscriptPredefVarDelim "\v\$\{(:|/)(\@R)?}"
+hi def link testscriptPredefVarDelim Delimiter
 
 syn region testscriptString oneline start="\v'" skip="\v''" end="\v'"
 hi def link testscriptString String
